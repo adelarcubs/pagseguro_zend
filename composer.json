@@ -3,10 +3,11 @@
   "description" : "API para uso no pagseguro",
   "require" : {
     "php" : ">=5.3.3",
-    "zendframework/zendframework" : "2.*"
+    "zendframework/zendframework" : "2.*",
+    "ext-curl" : "*"
   },
   "require-dev" : {
-    "phpunit/phpunit": "4.*"
+    "phpunit/phpunit" : "4.*"
   },
   "autoload" : {
     "psr-0" : {

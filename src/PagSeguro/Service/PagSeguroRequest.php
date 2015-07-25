@@ -70,7 +70,7 @@ class PagSeguroRequest
         // echo "\n\n";
         $xml = curl_exec($curl);
         // echo "\n\n";
-        echo $xml;
+        // echo $xml;
         // if ($xml == 'Unauthorized') {
         // // Insira seu código avisando que o sistema está com problemas, sugiro enviar um e-mail avisando para alguém fazer a manutenção
         
@@ -82,7 +82,7 @@ class PagSeguroRequest
         
         $xml = simplexml_load_string($xml);
         
-        return 'Location: https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code=' . $xml->code;
+        return 'https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code=' . $xml->code;
     }
 }
 
