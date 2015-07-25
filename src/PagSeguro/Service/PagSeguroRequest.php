@@ -58,7 +58,7 @@ class PagSeguroRequest
             </address>
         </shipping>
     </checkout>';
-        echo 'begin';
+        // echo 'begin';
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -66,10 +66,10 @@ class PagSeguroRequest
             'Content-Type: application/xml; charset=ISO-8859-1'
         ));
         curl_setopt($curl, CURLOPT_POSTFIELDS, $xml);
-        echo 'call';
-        echo "\n\n";
+        // echo 'call';
+        // echo "\n\n";
         $xml = curl_exec($curl);
-        echo "\n\n";
+        // echo "\n\n";
         echo $xml;
         // if ($xml == 'Unauthorized') {
         // // Insira seu código avisando que o sistema está com problemas, sugiro enviar um e-mail avisando para alguém fazer a manutenção
@@ -81,6 +81,8 @@ class PagSeguroRequest
         curl_close($curl);
         
         $xml = simplexml_load_string($xml);
+        
+        return 'Location: https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code=' . $xml->code;
     }
 }
 
