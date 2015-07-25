@@ -6,7 +6,7 @@ namespace PagSeguro\Model;
  * @author Adelar Tiemann Junior
  *        
  */
-class PagSeguroCheckout
+class Checkout
 {
 
     private $items;
