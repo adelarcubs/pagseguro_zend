@@ -13,46 +13,114 @@ class Item
 
     private $description;
 
-    private $quantity;
-
     private $amount;
 
-    public function __construct($id, $description, $quantity, $amount)
+    private $quantity;
+
+    private $shippingCost;
+
+    private $weight;
+
+    public function __construct($id, $description, $quantity, $amount, $weight = null, $shippingCost = null)
     {
         $this->id = $id;
         $this->description = $description;
-        $this->quantity = $quantity;
         $this->amount = $amount;
+        $this->quantity = $quantity;
+        
+        $this->setWeight($weight);
+        $this->setShippingCost($shippingCost);
     }
 
+    /**
+     *
+     * @return the $id
+     */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     *
+     * @return the $description
+     */
     public function getDescription()
     {
         return $this->description;
     }
 
-    public function getQuantity()
-    {
-        return $this->quantity;
-    }
-
+    /**
+     *
+     * @return the $amount
+     */
     public function getAmount()
     {
         return $this->amount;
     }
 
-    public function toArray()
+    /**
+     *
+     * @return the $quantity
+     */
+    public function getQuantity()
     {
-        return array(
-            'id' => $this->getId(),
-            'description' => $this->getDescription(),
-            'quantity' => $this->getQuantity(),
-            'amount' => $this->getAmount()
-        );
+        return $this->quantity;
+    }
+
+    /**
+     *
+     * @return the $shippingCost
+     */
+    public function getShippingCost()
+    {
+        return $this->shippingCost;
+    }
+
+    /**
+     *
+     * @return the $weight
+     */
+    public function getWeight()
+    {
+        return $this->weight;
+    }
+
+    /**
+     *
+     * @param field_type $shippingCost            
+     */
+    public function setShippingCost($shippingCost)
+    {
+        $this->shippingCost = $shippingCost;
+    }
+
+    /**
+     *
+     * @param field_type $weight            
+     */
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
+    }
+
+    public function parseXML()
+    {
+        $xml = '<item>';
+        $xml .= '<id>' . $this->getId() . '</id>';
+        $xml .= '<description>' . $this->getDescription() . '</description>';
+        $xml .= '<quantity>' . $this->getQuantity() . '</quantity>';
+        $xml .= '<amount>' . $this->getAmount() . '</amount>';
+        
+        if ($this->getWeight()) {
+            $xml .= '<weight>' . $this->getWeight() . '</weight>';
+        }
+        if ($this->getShippingCost()) {
+            $xml .= '<shippingCost>' . $this->getShippingCost() . '</shippingCost>';
+        }
+        
+        $xml .= '</item>';
+        return $xml;
     }
 }
 

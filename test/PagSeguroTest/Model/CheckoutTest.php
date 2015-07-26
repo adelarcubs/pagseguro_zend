@@ -11,7 +11,5 @@ class CheckoutTest extends PHPUnit_Framework_TestCase
     {
         $checkout = new Checkout();
         $this->assertInstanceOf('PagSeguro\Model\Checkout', $checkout);
-        
-        $this->assertEquals('BRL', $checkout->getCurrency());
     }
 }
