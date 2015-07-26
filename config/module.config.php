@@ -2,8 +2,8 @@
 return array(
     'service_manager' => array(
         'factories' => array(
-            'PagSeguroRequest' => 'PagSeguro\Factory\PagSeguroRequestFactory',
-            'ModuleOptions' => 'PagSeguro\Factory\ModuleOptionsFactory'
+            'PagSeguro-PagSeguroRequest' => 'PagSeguro\Factory\PagSeguroRequestFactory',
+            'PagSeguro-ModuleOptions' => 'PagSeguro\Factory\ModuleOptionsFactory'
         )
     )
 );

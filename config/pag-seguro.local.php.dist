@@ -1,0 +1,12 @@
+<?php
+$settings = array(
+    /**
+     * Default is false
+     */
+    'isSendBox' => true,
+    'email' => null,
+    'token' => null
+);
+return array(
+    'pag-seguro-config' => $settings
+);
