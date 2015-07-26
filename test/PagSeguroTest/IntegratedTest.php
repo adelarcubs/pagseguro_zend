@@ -2,22 +2,22 @@
 namespace PagSeguroTest;
 
 use PHPUnit_Framework_TestCase;
-use PagSeguro\Model\PagSeguroCheckout;
+use PagSeguro\Model\Checkout;
 use PagSeguro\Model\Item;
 use PagSeguro\Service\PagSeguroRequest;
 
 class IntegratedTest extends PHPUnit_Framework_TestCase
 {
 
-    public function testPagSeguroCheckout()
+    public function testIntegrated()
     {
-        $pagSeguroCheckout = new PagSeguroCheckout();
+        $checkout = new Checkout();
         
-        $pagSeguroCheckout->addItem(new Item('001', 'Plano 1', 1, 12.9));
+        $checkout->addItem(new Item('001', 'Plano 1', 1, 12.9));
         
-        $this->assertInstanceOf('PagSeguro\Model\PagSeguroCheckout', $pagSeguroCheckout);
+        $this->assertInstanceOf('PagSeguro\Model\Checkout', $checkout);
         
-        $this->assertEquals('BRL', $pagSeguroCheckout->getCurrency());
+        $this->assertEquals('BRL', $checkout->getCurrency());
         $request = new PagSeguroRequest();
         $request->call();
     }
