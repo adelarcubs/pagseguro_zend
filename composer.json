@@ -3,8 +3,7 @@
   "description" : "API para uso no pagseguro",
   "require" : {
     "php" : ">=5.3.3",
-    "zendframework/zendframework" : "2.*",
-    "ext-curl" : "*"
+    "zendframework/zendframework" : "2.*"
   },
   "require-dev" : {
     "phpunit/phpunit" : "4.*"
@@ -16,7 +15,7 @@
     },
     "classmap" : [ "./" ]
   },
-  "type" : "library",
   "license" : "MIT License",
+  "type" : "library",
   "homepage" : "https://github.com/adelarcubs/pagseguro"
 }
