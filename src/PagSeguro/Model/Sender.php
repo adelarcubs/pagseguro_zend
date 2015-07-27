@@ -57,7 +57,7 @@ class Sender
      */
     public function getBornDate()
     {
-        return $this->bornDate->format('Y/m/d');
+        return $this->bornDate;
     }
 
     /**
@@ -111,7 +111,7 @@ class Sender
         $xml .= '<email>' . $this->getEmail() . '</email>';
         $xml .= '<name>' . $this->getName() . '</name>';
         if ($this->getBornDate()) {
-            $xml .= '<bornDate>' . $this->getBornDate() . '</bornDate>';
+            $xml .= '<bornDate>' . $this->getBornDate()->format('d/m/Y') . '</bornDate>';
         }
         
         if ($this->getAreaCode() && $this->getNumber()) {

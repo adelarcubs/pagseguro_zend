@@ -6,6 +6,8 @@ use PagSeguro\Model\Checkout;
 use PagSeguro\Model\Item;
 use PagSeguro\Model\Sender;
 use PagSeguro\Model\Shipping;
+use PagSeguro\Options\ModuleOptions;
+use PagSeguro\Service\PagSeguroRequest;
 
 class IntegratedTest extends PHPUnit_Framework_TestCase
 {
@@ -23,14 +25,18 @@ class IntegratedTest extends PHPUnit_Framework_TestCase
         $checkout->setSender($sender);
         
         $shipping = new Shipping(1, 12.9);
-        $shipping->setAddress('SC', 'Joinville', 89203550, 'Anita Garilbaldi', 'Diringshofen', 321, 'casa');
+        $shipping->setAddress('SC', 'Joinville', 12345678, 'Anita Garilbaldi', 'AAAAAAA', 123, 'casa');
         
         $checkout->setShipping($shipping);
         
-        echo "\n\n\n\n\n\n\n";
+        $module = new ModuleOptions();
+        $module->setIsSendBox(true);
+        $module->setEmail('adelarcubs@uol.com.br');
+        $module->setToken('é para dar erro');
+        $request = new PagSeguroRequest($module);
         
-        echo $checkout->parseXML();
+        $this->setExpectedException('\Exception');
         
-        echo "\n\n\n\n\n\n\n";
+        $request->getResponse($checkout);
     }
 }

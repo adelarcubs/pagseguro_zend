@@ -110,7 +110,7 @@ class Item
         $xml .= '<id>' . $this->getId() . '</id>';
         $xml .= '<description>' . $this->getDescription() . '</description>';
         $xml .= '<quantity>' . $this->getQuantity() . '</quantity>';
-        $xml .= '<amount>' . $this->getAmount() . '</amount>';
+        $xml .= '<amount>' . number_format($this->getAmount(), 2) . '</amount>';
         
         if ($this->getWeight()) {
             $xml .= '<weight>' . $this->getWeight() . '</weight>';
