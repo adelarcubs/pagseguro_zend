@@ -1,4 +1,4 @@
-# pagseguro
+# PagSeguro
 Integration API with PagSeguro
 
 
@@ -11,6 +11,18 @@ composer require adelarcubs/pag-seguro
 
 Copy sample config "pag-seguro.local.php.dist" to "pag-seguro.local.php" on your local config
 
+
+Enable module on "application.config.php"
+```
+<?php
+return array(
+    'modules' => array(
+        // ...
+        'PagSeguro',
+    ),
+    // ...
+);
+```
 
 Using
 ------------
