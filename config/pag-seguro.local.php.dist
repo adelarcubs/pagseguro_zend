@@ -1,10 +1,44 @@
 <?php
 $settings = array(
     /**
+     * Default is null
+     * Optional paramenter
+     */
+    // 'redirectURL' => null,
+    
+    /**
+     * Default is null
+     * Optional paramenter
+     */
+    // 'notificationURL' => null,
+    
+    /**
+     * Default is null
+     * Optional paramenter
+     */
+    // 'maxUses' => null,
+    
+    /**
+     * Default is null
+     * Optional paramenter
+     */
+    // 'maxAge' => null,
+    
+    /**
      * Default is false
      */
-    'isSendBox' => true,
+    // 'isSendBox' => true,
+    
+    /**
+     * Default is false
+     * Mandatory paramenter
+     */
     'email' => null,
+    
+    /**
+     * Default is false
+     * Mandatory paramenter
+     */
     'token' => null
 );
 return array(
