@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "zendframework/zendframework",
-            "version": "2.4.4",
+            "version": "2.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "84cad41e1ee549d634c109de18c4626e51cc6b29"
+                "reference": "d7c27c5e9080e4fc7ae0d6455e2373cb6d85916a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/84cad41e1ee549d634c109de18c4626e51cc6b29",
-                "reference": "84cad41e1ee549d634c109de18c4626e51cc6b29",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/d7c27c5e9080e4fc7ae0d6455e2373cb6d85916a",
+                "reference": "d7c27c5e9080e4fc7ae0d6455e2373cb6d85916a",
                 "shasum": ""
             },
             "require": {
@@ -121,7 +121,7 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2015-07-21 15:45:25"
+            "time": "2015-07-28 15:44:18"
         },
         {
             "name": "zendframework/zendxml",
