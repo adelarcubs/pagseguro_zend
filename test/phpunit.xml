@@ -1,7 +1,18 @@
 <phpunit bootstrap="./Bootstrap.php" colors="true">
-  <testsuites>
-    <testsuite name="PagSeguro Module Tests">
-      <directory>./PagSeguroTest</directory>
-    </testsuite>
-  </testsuites>
+	convertNoticesToExceptions="true" convertWarningsToExceptions="true">
+	<testsuites>
+		<testsuite name="PagSeguro Module Tests">
+			<directory>./PagSeguroTest</directory>
+		</testsuite>
+	</testsuites>
+
+	<logging>
+		<log type="coverage-html" target="_docs/phpunit/coverage" title="Modulo Application"
+			charset="UTF-8" yui="true" highlight="true" lowUpperBound="35"
+			highLowerBound="70" />
+		<log type="coverage-clover" target="_docs/phpunit/logs/clover.xml" />
+		<log type="junit" target="_docs/phpunit/logs/junit.xml"
+			logIncompleteSkipped="false" />
+		<log type="testdox-text" target="_docs/phpunit/testdox/executed.txt" />
+	</logging>
 </phpunit>
