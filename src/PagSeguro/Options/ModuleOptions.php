@@ -184,4 +184,14 @@ class ModuleOptions extends AbstractOptions
     {
         return 'https://' . $this->getUrl() . '/v2/checkout/payment.html?code=' . $code;
     }
+
+    public function getAcess()
+    {
+        return '?email=' . $this->getEmail() . '&token=' . $this->getToken();
+    }
+
+    public function getTransactionUrl($transactionId)
+    {
+        return 'https://ws' . $this->getUrl() . '/v3/transactions/notifications/' . $transactionId . $this->getAcess();
+    }
 }
