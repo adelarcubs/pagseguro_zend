@@ -1,6 +1,9 @@
 # PagSeguro
 Integration API with PagSeguro
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/adelarcubs/pagseguro/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/adelarcubs/pagseguro/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/adelarcubs/pagseguro/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/adelarcubs/pagseguro/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/adelarcubs/pagseguro/badges/build.png?b=master)](https://scrutinizer-ci.com/g/adelarcubs/pagseguro/build-status/master)
 
 Installation
 ------------
