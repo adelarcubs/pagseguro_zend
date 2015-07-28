@@ -43,7 +43,7 @@ $settings = array(
      * Default is false
      * Optional paramenter
      */
-    'transactionProcessClass' => null,
+    'transactionProcessClassFactory' => null,
     
     /**
      * Default is false

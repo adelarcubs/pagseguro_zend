@@ -30,7 +30,7 @@ class PagSeguroController extends AbstractActionController
                 
                 $trasaction = new Transaction($trasactionRequest->send($this->options->getTransactionUrl($notificationCode)));
                 
-                $transactionProcess = new $this->options->getTransactionProcessClass();
+                $transactionProcess = $this->getServiceLocator()->get($this->options->getTransactionProcessClass());
                 $transactionProcess->process($trasaction);
             }
         }

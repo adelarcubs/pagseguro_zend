@@ -24,24 +24,24 @@ class ModuleOptions extends AbstractOptions
 
     protected $maxAge;
 
-    protected $transactionProcessClass;
+    protected $transactionProcessClassFactory;
 
     /**
      *
-     * @return the $transactionProcessClass
+     * @return the $transactionProcessClassFactory
      */
-    public function getTransactionProcessClass()
+    public function getTransactionProcessClassFactory()
     {
-        return $this->transactionProcessClass;
+        return $this->transactionProcessClassFactory;
     }
 
     /**
      *
      * @param field_type $transactionProcessClass            
      */
-    public function setTransactionProcessClass($transactionProcessClass)
+    public function setTransactionProcessClassFactory($transactionProcessClassFactory)
     {
-        $this->transactionProcessClass = $transactionProcessClass;
+        $this->transactionProcessClassFactory = $transactionProcessClassFactory;
     }
 
     /**
