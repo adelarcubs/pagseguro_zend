@@ -10,3 +10,4 @@ vendor/*
 /deployment.properties
 /deployment.xml
 config/*.local.php
+/ocular.phar
