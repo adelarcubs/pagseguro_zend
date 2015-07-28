@@ -10,7 +10,9 @@ class ModuleOptions extends AbstractOptions
 
     protected $email;
 
-    protected $token;
+    protected $tokenProduction;
+
+    protected $tokenSendBox;
 
     protected $extraAmount;
 
@@ -21,6 +23,62 @@ class ModuleOptions extends AbstractOptions
     protected $maxUses;
 
     protected $maxAge;
+
+    protected $transactionProcessClass;
+
+    /**
+     *
+     * @return the $transactionProcessClass
+     */
+    public function getTransactionProcessClass()
+    {
+        return $this->transactionProcessClass;
+    }
+
+    /**
+     *
+     * @param field_type $transactionProcessClass            
+     */
+    public function setTransactionProcessClass($transactionProcessClass)
+    {
+        $this->transactionProcessClass = $transactionProcessClass;
+    }
+
+    /**
+     *
+     * @return the $tokenProduction
+     */
+    public function getTokenProduction()
+    {
+        return $this->tokenProduction;
+    }
+
+    /**
+     *
+     * @param field_type $tokenProduction            
+     */
+    public function setTokenProduction($tokenProduction)
+    {
+        $this->tokenProduction = $tokenProduction;
+    }
+
+    /**
+     *
+     * @return the $tokenSendBox
+     */
+    public function getTokenSendBox()
+    {
+        return $this->tokenSendBox;
+    }
+
+    /**
+     *
+     * @param field_type $tokenSendBox            
+     */
+    public function setTokenSendBox($tokenSendBox)
+    {
+        $this->tokenSendBox = $tokenSendBox;
+    }
 
     /**
      *
@@ -38,15 +96,6 @@ class ModuleOptions extends AbstractOptions
     public function getEmail()
     {
         return $this->email;
-    }
-
-    /**
-     *
-     * @return the $token
-     */
-    public function getToken()
-    {
-        return $this->token;
     }
 
     /**
@@ -114,15 +163,6 @@ class ModuleOptions extends AbstractOptions
 
     /**
      *
-     * @param field_type $token            
-     */
-    public function setToken($token)
-    {
-        $this->token = $token;
-    }
-
-    /**
-     *
      * @param field_type $extraAmount            
      */
     public function setExtraAmount($extraAmount)
@@ -166,13 +206,20 @@ class ModuleOptions extends AbstractOptions
         $this->maxAge = $maxAge;
     }
 
+    public function getToken()
+    {
+        if ($this->getIsSendBox()) {
+            return $this->getTokenSendBox();
+        }
+        return $this->getTokenProduction();
+    }
+
     private function getUrl()
     {
-        $url = 'pagseguro.uol.com.br';
         if ($this->isSendBox) {
-            $url = 'sandbox.pagseguro.uol.com.br';
+            return 'sandbox.pagseguro.uol.com.br';
         }
-        return $url;
+        return 'pagseguro.uol.com.br';
     }
 
     public function getWsUrl()
@@ -192,6 +239,6 @@ class ModuleOptions extends AbstractOptions
 
     public function getTransactionUrl($transactionId)
     {
-        return 'https://ws' . $this->getUrl() . '/v3/transactions/notifications/' . $transactionId . $this->getAcess();
+        return 'https://ws.' . $this->getUrl() . '/v3/transactions/notifications/' . $transactionId . $this->getAcess();
     }
 }

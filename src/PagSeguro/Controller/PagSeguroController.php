@@ -5,6 +5,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use PagSeguro\Options\ModuleOptions;
 use PagSeguro\Service\TransactionRequest;
+use PagSeguro\Model\Transaction;
 
 class PagSeguroController extends AbstractActionController
 {
@@ -25,12 +26,15 @@ class PagSeguroController extends AbstractActionController
             
             if ($data['notificationType'] == 'transaction') {
                 $notificationCode = $data['notificationCode'];
-                $trasaction = new TransactionRequest();
+                $trasactionRequest = new TransactionRequest();
                 
-                echo $trasaction->send($this->options->getTransactionUrl($notificationCode));
+                $trasaction = new Transaction($trasactionRequest->send($this->options->getTransactionUrl($notificationCode)));
+                
+                $transactionProcess = new $this->options->getTransactionProcessClass();
+                $transactionProcess->process($trasaction);
             }
         }
-        $this->getResponse()->setStatusCode(405);
+        // $this->getResponse()->setStatusCode(200);
         
         $viewModel = new ViewModel();
         $viewModel->setTerminal(true);

@@ -30,16 +30,26 @@ $settings = array(
     // 'isSendBox' => true,
     
     /**
-     * Default is false
      * Mandatory paramenter
      */
     'email' => null,
     
     /**
-     * Default is false
      * Mandatory paramenter
      */
-    'token' => null
+    'tokenProduction' => null,
+    
+    /**
+     * Default is false
+     * Optional paramenter
+     */
+    'transactionProcessClass' => null,
+    
+    /**
+     * Default is false
+     * Optional paramenter
+     */
+    // 'tokenSendBox' => null
 );
 return array(
     'pag-seguro-config' => $settings

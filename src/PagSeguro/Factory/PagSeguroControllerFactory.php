@@ -10,7 +10,7 @@ class PagSeguroControllerFactory implements FactoryInterface
 
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        $moduleOptions = $serviceLocator->get('PagSeguro-ModuleOptions');
+        $moduleOptions = $serviceLocator->getServiceLocator()->get('PagSeguro-ModuleOptions');
         return new PagSeguroController($moduleOptions);
     }
 }
