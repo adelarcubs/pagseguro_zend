@@ -4,6 +4,11 @@ namespace PagSeguro\Service;
 use Zend\Http\Request;
 use Zend\Http\Client;
 
+/**
+ *
+ * @author Adelar Tiemann Junior
+ *        
+ */
 class TransactionRequest
 {
 
@@ -18,6 +23,9 @@ class TransactionRequest
         // $request->setContent($checkout->parseXML());
         
         $client = new Client();
+        $client->setOptions(array(
+            'sslverifypeer' => false
+        ));
         $response = $client->dispatch($request);
         
         if ($response->getBody() == 'Unauthorized') {
