@@ -1,8 +1,6 @@
 <?php
 namespace PagSeguro\Service;
 
-use PagSeguro\Model\Transaction;
-
 /**
  *
  * @author Adelar Tiemann Junior
@@ -11,5 +9,5 @@ use PagSeguro\Model\Transaction;
 interface PagSeguroProcessTransactionInterface
 {
 
-    public function process(Transaction $transaction);
+    public function process($transaction);
 }

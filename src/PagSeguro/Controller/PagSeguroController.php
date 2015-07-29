@@ -26,15 +26,12 @@ class PagSeguroController extends AbstractActionController
             
             if ($data['notificationType'] == 'transaction') {
                 $notificationCode = $data['notificationCode'];
-                $trasactionRequest = new TransactionRequest();
-                
-                $trasaction = new Transaction($trasactionRequest->send($this->options->getTransactionUrl($notificationCode)));
                 
                 $transactionProcess = $this->getServiceLocator()->get($this->options->getTransactionProcessClass());
-                $transactionProcess->process($trasaction);
+                $transactionProcess->process($notificationCode);
             }
         }
-        // $this->getResponse()->setStatusCode(200);
+        $this->getResponse()->setStatusCode(200);
         
         $viewModel = new ViewModel();
         $viewModel->setTerminal(true);
