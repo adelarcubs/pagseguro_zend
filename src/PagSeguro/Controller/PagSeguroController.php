@@ -27,7 +27,7 @@ class PagSeguroController extends AbstractActionController
             if ($data['notificationType'] == 'transaction') {
                 $notificationCode = $data['notificationCode'];
                 
-                $transactionProcess = $this->getServiceLocator()->get($this->options->getTransactionProcessClass());
+                $transactionProcess = $this->getServiceLocator()->get($this->options->getTransactionProcessClassFactory());
                 $transactionProcess->process($notificationCode);
             }
         }
