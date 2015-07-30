@@ -214,7 +214,7 @@ class ModuleOptions extends AbstractOptions
         return $this->getTokenProduction();
     }
 
-    private function getUrl($https = true)
+    public function getUrl($https = true)
     {
         $url = 'pagseguro.uol.com.br';
         if ($this->isSendBox) {
