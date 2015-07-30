@@ -9,5 +9,5 @@ namespace PagSeguro\Service;
 interface PagSeguroProcessTransactionInterface
 {
 
-    public function process($transaction);
+    public function process($notificationId, $transaction);
 }
