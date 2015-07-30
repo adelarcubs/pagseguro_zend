@@ -4,8 +4,6 @@ namespace PagSeguro\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use PagSeguro\Options\ModuleOptions;
-use PagSeguro\Service\TransactionRequest;
-use PagSeguro\Model\Transaction;
 
 class PagSeguroController extends AbstractActionController
 {
@@ -17,18 +15,20 @@ class PagSeguroController extends AbstractActionController
         $this->options = $options;
     }
 
-    public function indexAction()
+    public function notificationAction()
     {
         $request = $this->getRequest();
         
         if ($request->isPost()) {
             $data = $request->getPost();
             
+            $notificationCode = $data['notificationCode'];
+            $notificationRequest = $this->getServiceLocator()->get('PagSeguro-NotificationRequest');
+            
+            $xml = $notificationRequest->send($notificationCode);
             if ($data['notificationType'] == 'transaction') {
-                $notificationCode = $data['notificationCode'];
-                
                 $transactionProcess = $this->getServiceLocator()->get($this->options->getTransactionProcessClassFactory());
-                $transactionProcess->process($notificationCode);
+                $transactionProcess->process($xml);
             }
         }
         $this->getResponse()->setStatusCode(200);
