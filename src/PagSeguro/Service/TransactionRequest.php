@@ -1,8 +1,8 @@
 <?php
 namespace PagSeguro\Service;
 
+use PagSeguro\Options\ModuleOptions;
 use Zend\Http\Request;
-use Zend\Http\Client;
 
 /**
  *
@@ -12,27 +12,26 @@ use Zend\Http\Client;
 class TransactionRequest
 {
 
-    public function send($url)
+    private $options;
+
+    public function __construct(ModuleOptions $options)
     {
-        $request = new Request();
-        $request->getHeaders()->addHeaders(array(
+        $this->options = $options;
+    }
+
+    public function send($transactionId)
+    {
+        $url = $this->options->getWsUrl() . '/v3/transactions/notifications/' . $transactionId . $this->options->getAcess();
+        $method = Request::METHOD_GET;
+        $params = array();
+        $headers = array(
             'Content-Type: application/xml; charset=ISO-8859-1'
-        ));
-        $request->setUri($url);
-        $request->setMethod(Request::METHOD_GET);
-        // $request->setContent($checkout->parseXML());
+        );
         
-        $client = new Client();
-        $client->setOptions(array(
-            'sslverifypeer' => false
-        ));
-        $response = $client->dispatch($request);
-        
-        if ($response->getBody() == 'Unauthorized') {
-            throw new \Exception('Unauthorized access to PagSeguro');
-        }
-        
-        return simplexml_load_string($response->getBody());
+        // if ($response->getBody() == 'Unauthorized') {
+        // throw new \Exception('Unauthorized access to PagSeguro');
+        // }
+        return PagSeguroRequest::send($url, $method, $params, $headers);
     }
 }
 

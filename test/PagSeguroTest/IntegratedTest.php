@@ -32,7 +32,7 @@ class IntegratedTest extends PHPUnit_Framework_TestCase
         $module = new ModuleOptions();
         $module->setIsSendBox(true);
         $module->setEmail('adelarcubs@uol.com.br');
-        $module->setToken('é para dar erro');
+        $module->setTokenSendBox('é para dar erro');
         $request = new PagSeguroRequest($module);
         
         $this->setExpectedException('\Exception');

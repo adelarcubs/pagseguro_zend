@@ -214,17 +214,21 @@ class ModuleOptions extends AbstractOptions
         return $this->getTokenProduction();
     }
 
-    private function getUrl()
+    private function getUrl($https = true)
     {
+        $url = 'pagseguro.uol.com.br';
         if ($this->isSendBox) {
-            return 'sandbox.pagseguro.uol.com.br';
+            $url = 'sandbox.' . $url;
         }
-        return 'pagseguro.uol.com.br';
+        if ($https) {
+            $url = 'https://' . $url;
+        }
+        return $url;
     }
 
     public function getWsUrl()
     {
-        return 'https://ws.' . $this->getUrl() . '/v2/checkout/?email=' . $this->getEmail() . '&token=' . $this->getToken();
+        return 'https://ws.' . $this->getUrl(false);
     }
 
     public function getPaymentUrl($code)
