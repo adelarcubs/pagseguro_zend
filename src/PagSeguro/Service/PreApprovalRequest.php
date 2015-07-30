@@ -1,6 +1,8 @@
 <?php
 namespace PagSeguro\Service;
 
+use Zend\http\Request;
+
 class PreApprovalRequest
 {
 
