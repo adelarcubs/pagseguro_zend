@@ -18,6 +18,17 @@ class PreApproval implements ModelInterface
 
     private $maxTotalAmount;
 
+    public function __construct($charge, $name, $details, $amountPerPayment, $period, $finalDate, $maxTotalAmount)
+    {
+        $this->charge = $charge;
+        $this->name = $name;
+        $this->details = $details;
+        $this->amountPerPayment = $amountPerPayment;
+        $this->period = $period;
+        $this->finalDate = $finalDate;
+        $this->maxTotalAmount = $maxTotalAmount;
+    }
+
     /**
      *
      * @return the $charge
