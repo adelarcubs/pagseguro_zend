@@ -38,7 +38,9 @@ class PagSeguroRequest
         $client->setOptions(array(
             'sslverifypeer' => false
         ));
-        return $client->send($request);
+        $response = $client->send($request);
+        
+        return $response->getBody();
     }
 }
 
