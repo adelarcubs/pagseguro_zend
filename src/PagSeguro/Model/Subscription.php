@@ -66,8 +66,7 @@ class Subscription implements ModelInterface
 
     public function parseXML()
     {
-        $xml = '<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>';
-        $xml .= '<preApprovalRequest>';
+        $xml = '<preApprovalRequest>';
         $xml .= '<reference>' . $this->getReference() . '</reference>';
         if ($this->getSender()) {
             $xml .= $this->getSender()->parseXML();

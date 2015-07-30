@@ -98,10 +98,10 @@ class PreApproval implements ModelInterface
         $xml .= '<charge>' . $this->getCharge() . '</charge>';
         $xml .= '<name>' . $this->getName() . '</name>';
         $xml .= '<details>' . $this->getDetails() . '</details>';
-        $xml .= '<amountPerPayment>' . $this->getAmountPerPayment() . '</amountPerPayment>';
+        $xml .= '<amountPerPayment>' . number_format($this->getAmountPerPayment(), 2) . '</amountPerPayment>';
         $xml .= '<period>' . $this->getPeriod() . '</period>';
         $xml .= '<finalDate>' . $this->getFinalDate() . '</finalDate>';
-        $xml .= '<maxTotalAmount>' . $this->getMaxTotalAmount() . '</maxTotalAmount>';
+        $xml .= '<maxTotalAmount>' . number_format($this->getMaxTotalAmount(), 2) . '</maxTotalAmount>';
         $xml .= '</preApproval>';
         return $xml;
     }
