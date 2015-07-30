@@ -11,7 +11,7 @@ class PreApprovalRequest
         $this->options = $options;
     }
 
-    public function send(ModelInterface $model)
+    public function send($model)
     {
         $url = $this->options->getWsUrl() . '/v2/pre-approvals/request' . $this->options->getAcess();
         $method = Request::METHOD_POST;
